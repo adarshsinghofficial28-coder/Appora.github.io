@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appora — Sign Up</title>
+  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.2/dist/phosphor.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-background">
+  <div class="preloader" id="preloader">
+    <div class="crack crack1"></div>
+    <div class="crack crack2"></div>
+    <div class="crack crack3"></div>
+    <div class="crack crack4"></div>
+    <div class="crack crack5"></div>
+  </div>
+  <main class="section" style="padding: 4rem 0; min-height: calc(100vh - 120px);">
+    <div class="container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+            <span class="logo-mark">A</span>
+            <span class="font-extrabold text-xl">Appora</span>
+          </div>
+          <h1>Create Account</h1>
+          <p class="text-sm text-muted-foreground">Sign up to save bookmarks, leave reviews, and submit apps.</p>
+        </div>
+
+        <form class="auth-form" id="signupForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="At least 8 characters" required />
+          </div>
+          <div class="form-group">
+            <label for="passwordConfirm">Confirm Password</label>
+            <input type="password" id="passwordConfirm" placeholder="Confirm your password" required />
+          </div>
+          <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+
+        <div class="auth-footer" style="margin-top: 1.5rem; border-top: 1px solid var(--color-border); padding-top: 1rem;">
+          Already have an account? <a href="login.html">Sign In</a>
+        </div>
+
+        <div class="auth-footer" style="margin-top: 0; border-top: none; padding-top: 0;">
+          By signing up, you agree to our
+          <a href="login.html" class="text-xs">Terms</a> and
+          <a href="login.html" class="text-xs">Privacy Policy</a>.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirm = document.getElementById('passwordConfirm').value;
+
+        if (!name || !email || !password || !confirm) {
+          showToast('Please fill in all fields.');
+          return;
+        }
+        if (password !== confirm) {
+          showToast('Passwords do not match.');
+          return;
+        }
+        if (password.length < 8) {
+          showToast('Password must be at least 8 characters.');
+          return;
+        }
+
+        // Check if user already exists
+        const users = JSON.parse(localStorage.getItem('appora_users')) || [];
+        if (users.some(u => u.email === email)) {
+          showToast('Email already registered.');
+          return;
+        }
+
+        const newUser = { id: Date.now(), name, email, password };
+        users.push(newUser);
+        localStorage.setItem('appora_users', JSON.stringify(users));
+        showToast('Account created successfully!');
+        window.location.href = 'dashboard.html';
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      if (t) {
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
+      }
+    }
+
+    // Preloader: shows on slow server response, hides when page is ready
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      if (preloader) preloader.classList.add('hidden');
+    });
+    window.addEventListener('beforeunload', () => {
+      if (preloader) preloader.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

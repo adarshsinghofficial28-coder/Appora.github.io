@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appora — Pricing</title>
+  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.2/dist/phosphor.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-background">
+  <div class="preloader" id="preloader">
+    <div class="crack crack1"></div>
+    <div class="crack crack2"></div>
+    <div class="crack crack3"></div>
+    <div class="crack crack4"></div>
+    <div class="crack crack5"></div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">A</span>
+          <span class="font-extrabold text-xl text-foreground">Appora</span>
+        </a>
+        <nav class="main-nav">
+          <a href="index.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Home</a>
+          <a href="browse.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Browse</a>
+          <a href="pricing.html" class="text-sm font-medium text-primary">Pricing</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-ghost text-sm">Sign In</button>
+          <button class="btn-primary text-sm">Get Started</button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+            <phosphor-icon name="list" size="24"></phosphor-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: 5rem;">
+      <div class="container">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto 4rem;">
+          <div class="hero-eyebrow" style="margin-bottom: 1rem;">Simple, transparent pricing</div>
+          <h1 class="hero-title text-foreground">Choose the plan that's right for you</h1>
+          <p class="hero-subtitle">All plans include access to our full app directory. Upgrade anytime.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 960px; margin: 0 auto;">
+          <!-- Free Plan -->
+          <div class="app-card" style="position: relative; border: 2px solid var(--color-border);">
+            <div style="padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border); margin-bottom: 1.5rem;">
+              <div style="display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.5rem;">
+                <span class="text-4xl font-extrabold">$0</span>
+                <span class="text-muted-foreground">/month</span>
+              </div>
+              <p class="text-sm text-muted-foreground">Perfect for exploring and personal use</p>
+            </div>
+            <h3 class="font-semibold text-lg mb-4">Free</h3>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Browse 50,000+ apps</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Save up to 50 bookmarks</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Basic category filters</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Community support</li>
+            </ul>
+            <button class="btn-secondary" style="width: 100%;">Get Started Free</button>
+          </div>
+
+          <!-- Pro Plan -->
+          <div class="app-card" style="position: relative; border: 2px solid var(--color-primary);">
+            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 0.25rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">Most Popular</div>
+            <div style="padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border); margin-bottom: 1.5rem;">
+              <div style="display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.5rem;">
+                <span class="text-4xl font-extrabold">$12</span>
+                <span class="text-muted-foreground">/month</span>
+              </div>
+              <p class="text-sm text-muted-foreground">For professionals and small teams</p>
+            </div>
+            <h3 class="font-semibold text-lg mb-4">Pro</h3>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Everything in Free</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Unlimited bookmarks</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Advanced filters & sorting</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Export lists (CSV, JSON)</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Price drop alerts</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Priority support</li>
+            </ul>
+            <button class="btn-primary" style="width: 100%;">Start Pro Trial</button>
+          </div>
+
+          <!-- Team Plan -->
+          <div class="app-card" style="position: relative; border: 2px solid var(--color-border);">
+            <div style="padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border); margin-bottom: 1.5rem;">
+              <div style="display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.5rem;">
+                <span class="text-4xl font-extrabold">$49</span>
+                <span class="text-muted-foreground">/month</span>
+              </div>
+              <p class="text-sm text-muted-foreground">For teams and organizations</p>
+            </div>
+            <h3 class="font-semibold text-lg mb-4">Team</h3>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Everything in Pro</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Up to 10 team members</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Shared workspaces</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Team analytics dashboard</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> SSO & SAML authentication</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-muted-foreground);"><phosphor-icon name="check" size="16" style="color: #10B981;"></phosphor-icon> Dedicated account manager</li>
+            </ul>
+            <button class="btn-secondary" style="width: 100%;">Contact Sales</button>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div style="margin-top: 5rem; max-width: 720px; margin-left: auto; margin-right: auto;">
+          <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Frequently Asked Questions</h2>
+          <div class="detail-card">
+            <details style="border-bottom: 1px solid var(--color-border); padding: 1rem 0;">
+              <summary style="font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;">
+                Can I switch plans later?
+                <phosphor-icon name="caret-down" size="20" style="color: var(--color-muted-foreground); transition: transform 200ms;"></phosphor-icon>
+              </summary>
+              <p class="text-muted-foreground mt-3" style="font-size: 0.875rem;">Yes, you can upgrade or downgrade at any time. Changes take effect immediately for upgrades, and at the end of the billing cycle for downgrades.</p>
+            </details>
+            <details style="border-bottom: 1px solid var(--color-border); padding: 1rem 0;">
+              <summary style="font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;">
+                Is there a free trial for Pro?
+                <phosphor-icon name="caret-down" size="20" style="color: var(--color-muted-foreground); transition: transform 200ms;"></phosphor-icon>
+              </summary>
+              <p class="text-muted-foreground mt-3" style="font-size: 0.875rem;">Yes, Pro includes a 14-day free trial. No credit card required. You'll have full access to all Pro features during the trial.</p>
+            </details>
+            <details style="border-bottom: 1px solid var(--color-border); padding: 1rem 0;">
+              <summary style="font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;">
+                What payment methods do you accept?
+                <phosphor-icon name="caret-down" size="20" style="color: var(--color-muted-foreground); transition: transform 200ms;"></phosphor-icon>
+              </summary>
+              <p class="text-muted-foreground mt-3" style="font-size: 0.875rem;">We accept all major credit cards (Visa, Mastercard, Amex), PayPal, and bank transfers for annual Team plans.</p>
+            </details>
+            <details style="padding: 1rem 0;">
+              <summary style="font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;">
+                Can I cancel anytime?
+                <phosphor-icon name="caret-down" size="20" style="color: var(--color-muted-foreground); transition: transform 200ms;"></phosphor-icon>
+              </summary>
+              <p class="text-muted-foreground mt-3" style="font-size: 0.875rem;">Absolutely. Cancel anytime from your dashboard. You'll retain access until the end of your billing period. No questions asked.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-card">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="text-sm text-muted-foreground" style="padding-top: 1.5rem; border-top: 1px solid var(--color-border); text-align: center;">
+        &copy; 2024 Appora. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+
+    // Accordion animation
+    document.querySelectorAll('details').forEach(detail => {
+      detail.addEventListener('toggle', () => {
+        const icon = detail.querySelector('phosphor-icon');
+        if (icon) icon.style.transform = detail.open ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+    });
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // Preloader: shows on slow server response, hides when page is ready
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      if (preloader) preloader.classList.add('hidden');
+    });
+    window.addEventListener('beforeunload', () => {
+      if (preloader) preloader.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

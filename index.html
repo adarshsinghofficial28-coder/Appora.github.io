@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appora — Home</title>
+  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.2/dist/phosphor.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-background">
+  <div class="preloader" id="preloader">
+    <div class="crack crack1"></div>
+    <div class="crack crack2"></div>
+    <div class="crack crack3"></div>
+    <div class="crack crack4"></div>
+    <div class="crack crack5"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">A</span>
+          <span class="font-extrabold text-xl text-foreground">Appora</span>
+        </a>
+        <nav class="main-nav">
+          <a href="index.html" class="text-sm font-medium text-primary">Home</a>
+          <a href="browse.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Browse</a>
+          <a href="pricing.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Pricing</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-ghost text-sm">Sign In</button>
+          <a href="signup.html" class="btn-primary text-sm">Get Started</a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+            <phosphor-icon name="list" size="24"></phosphor-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Main navigation">
+    <div class="mobile-menu-header">
+      <span class="font-bold text-lg">Appora</span>
+      <button class="icon-button" id="closeMobileMenu" aria-label="Close menu">
+        <phosphor-icon name="x" size="24"></phosphor-icon>
+      </button>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="pricing.html">Pricing</a>
+      <hr style="border-color: var(--color-border); margin: 1rem 0;" />
+      <a href="login.html" class="btn-secondary text-sm">Sign In</a>
+      <a href="signup.html" class="btn-primary text-sm">Get Started</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <phosphor-icon name="sparkle" size="16" style="color: var(--color-primary);"></phosphor-icon>
+            <span>Find your tools</span>
+          </div>
+          <h1 class="hero-title text-foreground">
+            Discover Apps. Find Your Tools.
+          </h1>
+          <p class="hero-subtitle">
+            Appora helps you discover, evaluate, and bookmark the best software for your workflow.
+            Browse thousands of apps across productivity, design, development, and more.
+          </p>
+
+          <div class="hero-search">
+            <form id="heroSearchForm" role="search">
+              <div id="poda">
+                <div class="grid"></div>
+                <div class="glow"></div>
+                <div class="darkBorderBg"></div>
+                <div class="darkBorderBg"></div>
+                <div class="darkBorderBg"></div>
+                <div class="white"></div>
+                <div class="border"></div>
+                <div id="main">
+                  <input
+                    type="search"
+                    placeholder="Search apps, tools, categories..."
+                    aria-label="Search apps and tools"
+                    id="heroSearchInput"
+                    name="text"
+                    class="input" />
+                  <div id="input-mask"></div>
+                  <div id="pink-mask"></div>
+                  <div class="filterBorder"></div>
+                  <div id="filter-icon">
+                    <svg
+                      preserveAspectRatio="none"
+                      height="27"
+                      width="27"
+                      viewBox="4.8 4.56 14.832 15.408"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.16 6.65002H15.83C16.47 6.65002 16.99 7.17002 16.99 7.81002V9.09002C16.99 9.56002 16.7 10.14 16.41 10.43L13.91 12.64C13.56 12.93 13.33 13.51 13.33 13.98V16.48C13.33 16.83 13.1 17.29 12.81 17.47L12 17.98C11.24 18.45 10.2 17.92 10.2 16.99V13.91C10.2 13.5 9.97 12.98 9.73 12.69L7.52 10.36C7.23 10.08 7 9.55002 7 9.20002V7.87002C7 7.17002 7.52 6.65002 8.16 6.65002Z"
+                        stroke="#d6d6e6"
+                        stroke-width="1"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div id="search-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                      stroke-linecap="round"
+                      height="24"
+                      fill="none"
+                      class="feather feather-search"
+                    >
+                      <circle stroke="url(#search)" r="8" cy="11" cx="11"></circle>
+                      <line
+                        stroke="url(#searchl)"
+                        y2="16.65"
+                        y1="22"
+                        x2="16.65"
+                        x1="22"
+                      ></line>
+                      <defs>
+                        <linearGradient gradientTransform="rotate(50)" id="search">
+                          <stop stop-color="#f8e7f8" offset="0%"></stop>
+                          <stop stop-color="#b6a9b7" offset="50%"></stop>
+                        </linearGradient>
+                        <linearGradient id="searchl">
+                          <stop stop-color="#b6a9b7" offset="0%"></stop>
+                          <stop stop-color="#837484" offset="50%"></stop>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Stats -->
+    <div class="container">
+      <div class="trust-stats">
+        <div>
+          <div class="stat-number">50K+</div>
+          <div class="text-sm text-muted-foreground">Curated Apps</div>
+        </div>
+        <div>
+          <div class="stat-number">12K+</div>
+          <div class="text-sm text-muted-foreground">Open Source</div>
+        </div>
+        <div>
+          <div class="stat-number">250+</div>
+          <div class="text-sm text-muted-foreground">Categories</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Grid (Dashboard Style) -->
+    <div class="container">
+      <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        <div class="stat-card">
+          <div class="stat-value text-2xl">50K+</div>
+          <div class="stat-label">Curated Apps</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value text-2xl">12K+</div>
+          <div class="stat-label">Open Source</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value text-2xl">250+</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value text-2xl">98%</div>
+          <div class="stat-label">Uptime</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Category Chips -->
+      <section class="section" style="padding-top: 2rem;">
+        <div class="categories" role="list">
+          <button class="category-chip active" data-category="all">
+            <phosphor-icon name="grid-four-window" size="16"></phosphor-icon>
+            All Apps
+          </button>
+          <button class="category-chip" data-category="productivity">Productivity</button>
+          <button class="category-chip" data-category="design">Design</button>
+          <button class="category-chip" data-category="development">Development</button>
+          <button class="category-chip" data-category="ai">AI & ML</button>
+          <button class="category-chip" data-category="communication">Communication</button>
+          <button class="category-chip" data-category="free">Free Only</button>
+        </div>
+      </section>
+
+      <!-- Featured Apps -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Apps</h2>
+          <a href="directory.html" class="section-link">View all</a>
+        </div>
+        <div class="apps-grid" id="featuredGrid">
+          <!-- App cards populated by JS -->
+        </div>
+      </section>
+
+      <!-- Trending Apps -->
+      <section class="section" style="padding-top: 0;">
+        <div class="section-header">
+          <h2 class="section-title">Trending</h2>
+          <a href="directory.html" class="section-link">View all</a>
+        </div>
+        <div class="apps-grid" id="trendingGrid">
+          <!-- App cards populated by JS -->
+        </div>
+      </section>
+
+      <!-- Free Open-Source Software -->
+      <section class="section" style="padding-top: 0;">
+        <div class="section-header">
+          <h2 class="section-title">Free Open-Source Software</h2>
+          <a href="directory.html?filter=oss" class="section-link">View all</a>
+        </div>
+        <div class="apps-grid" id="ossGrid">
+          <!-- App cards populated by JS -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-card border-top" style="border-top: 1px solid var(--color-border);">
+    <div class="container" style="padding: 3rem 0;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+        <div>
+          <div class="logo" style="margin-bottom: 1rem;">
+            <span class="logo-mark">A</span>
+            <span class="font-extrabold text-xl">Appora</span>
+          </div>
+          <p class="text-sm text-muted-foreground">
+            Discover Apps. Find Your Tools.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-foreground mb-3">Product</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="index.html" class="text-sm text-muted-foreground hover:text-primary transition">Home</a></li>
+            <li><a href="browse.html" class="text-sm text-muted-foreground hover:text-primary transition">Browse</a></li>
+            <li><a href="pricing.html" class="text-sm text-muted-foreground hover:text-primary transition">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-foreground mb-3">Company</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="login.html" class="text-sm text-muted-foreground hover:text-primary transition">Login</a></li>
+            <li><a href="dashboard.html" class="text-sm text-muted-foreground hover:text-primary transition">Dashboard</a></li>
+            <li><a href="admin-panel.html" class="text-sm text-muted-foreground hover:text-primary transition">Admin Panel</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-foreground mb-3">Support</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="login.html" class="text-sm text-muted-foreground hover:text-primary transition">Help Center</a></li>
+            <li><a href="login.html" class="text-sm text-muted-foreground hover:text-primary transition">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-sm text-muted-foreground" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+        &copy; 2024 Appora. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    // Load apps from localStorage (added via admin panel), fallback to defaults
+    const STORAGE_KEY = 'appora_apps';
+    const defaultApps = [
+      { id: 1, logo: '', name: 'Linear', url: 'https://linear.app', desc: 'Track and ship work across the software development life cycle.', rating: 4.8, category: 'Productivity', pricing: 'paid', tag: 'paid', platforms: ['web'], status: 'live' },
+      { id: 2, logo: '', name: 'Figma', url: 'https://figma.com', desc: 'Design, prototype, and share user experiences faster.', rating: 4.7, category: 'Design', pricing: 'free', tag: 'free', platforms: ['web'], status: 'live' },
+      { id: 3, logo: '', name: 'Cursor', url: 'https://cursor.sh', desc: 'The IDE built for pair-programming with AI.', rating: 4.9, category: 'Development', pricing: 'paid', tag: 'paid', platforms: ['mac', 'win', 'linux'], status: 'live' },
+      { id: 4, logo: '', name: 'Notion', url: 'https://notion.so', desc: 'One workspace for writing, planning, and organizing.', rating: 4.6, category: 'Productivity', pricing: 'free', tag: 'free', platforms: ['web', 'mac', 'win', 'linux'], status: 'live' },
+      { id: 5, logo: '', name: 'Postman', url: 'https://postman.com', desc: 'API development and testing platform.', rating: 4.5, category: 'Development', pricing: 'paid', tag: 'paid', platforms: ['web', 'mac', 'win', 'linux'], status: 'live' },
+      { id: 6, logo: '', name: 'Framer', url: 'https://framer.com', desc: 'Interactive web design tool with AI assistance.', rating: 4.3, category: 'Design', pricing: 'free', tag: 'free', platforms: ['web'], status: 'live' },
+      { id: 7, logo: '', name: 'Replit', url: 'https://replit.com', desc: 'Collaborative browser-based IDE.', rating: 4.4, category: 'Development', pricing: 'open-source', tag: 'open-source', platforms: ['web'], status: 'live' },
+      { id: 8, logo: '', name: 'Discord', url: 'https://discord.com', desc: 'Chat platform for communities and teams.', rating: 4.2, category: 'Communication', pricing: 'free', tag: 'free', platforms: ['web', 'mac', 'win', 'ios', 'android'], status: 'live' },
+    ];
+
+    const storedApps = localStorage.getItem(STORAGE_KEY);
+    let allApps = (storedApps && JSON.parse(storedApps).length > 0) ? JSON.parse(storedApps) : defaultApps;
+
+    // Ensure all apps have required fields
+    allApps = allApps.map(app => ({
+      tag: app.pricing || app.tag || 'free',
+      platforms: app.platforms || ['web'],
+      ...app
+    }));
+
+    const iconColors = ['bg-indigo', 'bg-emerald', 'bg-amber', 'bg-rose', 'bg-blue', 'bg-purple', 'bg-teal', 'bg-orange'];
+
+    function getIconColor(name) {
+      let h = 0;
+      for (let i = 0; i < name.length; i++) {
+        h = ((h << 5) - h) + name.charCodeAt(i);
+        h |= 0;
+      }
+      return iconColors[Math.abs(h) % iconColors.length];
+    }
+
+    function getPlatformIcons(platforms) {
+      const map = { web: 'web', mac: 'apple', win: 'windows', linux: 'terminal', ios: 'iphone', android: 'android' };
+      return (platforms || []).map(p => `<phosphor-icon name="${map[p] || 'web'}" size="14" style="color: var(--color-muted-foreground);"></phosphor-icon>`).join('');
+    }
+
+    function generateAppCard(app) {
+      const tagClass = app.tag === 'free' ? 'free' : app.tag === 'paid' ? 'paid' : 'open-source';
+      const tagName = app.tag === 'free' ? 'Free' : app.tag === 'paid' ? 'Paid' : 'Open Source';
+      const ratingStr = app.rating !== undefined ? app.rating.toFixed(1) : '';
+      return `
+        <div class="app-card" onclick="location.href='app-detail.html?name=${encodeURIComponent(app.name)}'">
+          <div class="app-card-header">
+            <div class="app-icon ${getIconColor(app.name)}">${app.name.charAt(0)}</div>
+            <div style="flex: 1;">
+              <div class="app-card-body">
+                <h3 class="font-semibold">${app.name}</h3>
+                <p>${app.desc || ''}</p>
+              </div>
+              <div class="app-card-footer">
+                <div class="app-card-meta">
+                  <span class="price-badge ${tagClass}">${tagName}</span>
+                  <div class="platform-pill">${getPlatformIcons(app.platforms)}</div>
+                </div>
+                ${ratingStr ? `<div class="platform-pill"><phosphor-icon name="star" size="14" weight="fill" style="color: #F59E0B;"></phosphor-icon> ${ratingStr}</div>` : ''}
+              </div>
+            </div>
+          </div>
+          <button class="bookmark-btn" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+            <phosphor-icon name="bookmark" size="18"></phosphor-icon>
+          </button>
+        </div>
+      `;
+    }
+
+    function toggleBookmark(btn) {
+      btn.classList.toggle('bookmarked');
+      const icon = btn.querySelector('phosphor-icon');
+      icon.setAttribute('name', btn.classList.contains('bookmarked') ? 'bookmark-simple' : 'bookmark');
+      icon.setAttribute('weight', btn.classList.contains('bookmarked') ? 'fill' : 'regular');
+      showToast(btn.classList.contains('bookmarked') ? 'Bookmarked!' : 'Removed bookmark');
+    }
+
+    function populateGrid(id, items) {
+      const grid = document.getElementById(id);
+      if (grid && items) {
+        grid.innerHTML = items.map(generateAppCard).join('');
+      }
+    }
+
+    // Split apps for sections
+    const liveApps = allApps.filter(a => a.status === 'live');
+    const featured = liveApps.slice(0, 6);
+    const trending = liveApps.slice(6, 12);
+    const ossApps = allApps.filter(a => a.tag === 'open-source').slice(0, 6);
+
+    populateGrid('featuredGrid', featured);
+    populateGrid('trendingGrid', trending);
+    populateGrid('ossGrid', ossApps);
+
+    // Hero search form
+    const heroSearchForm = document.getElementById('heroSearchForm');
+    const heroSearchInput = document.getElementById('heroSearchInput');
+    if (heroSearchForm) {
+      heroSearchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = heroSearchInput.value.trim();
+        if (query) {
+          showToast(`Searching for "${query}"...`);
+          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+      });
+    }
+
+    // Category filter chips
+    document.querySelectorAll('.category-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        showToast(`Filtered by: ${chip.textContent.trim()}`);
+      });
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+    }
+
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      if (preloader) preloader.classList.add('hidden');
+    });
+    window.addEventListener('beforeunload', () => {
+      if (preloader) preloader.classList.remove('hidden');
+    });
+  </script>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    if (closeMobileMenu) closeMobileMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

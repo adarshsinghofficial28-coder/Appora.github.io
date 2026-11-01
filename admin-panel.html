@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appora — Admin Panel</title>
+  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.2/dist/phosphor.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-background">
+  <div class="preloader" id="preloader">
+    <div class="crack crack1"></div>
+    <div class="crack crack2"></div>
+    <div class="crack crack3"></div>
+    <div class="crack crack4"></div>
+    <div class="crack crack5"></div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="dashboard.html" class="logo">
+          <span class="logo-mark">A</span>
+          <span class="font-extrabold text-xl text-foreground">Appora</span>
+        </a>
+        <nav class="main-nav">
+          <a href="dashboard.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Dashboard</a>
+          <a href="admin-panel.html" class="text-sm font-medium text-primary">Admin Panel</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button text-sm" aria-label="Notifications"><phosphor-icon name="bell" size="20"></phosphor-icon></button>
+          <button class="icon-button text-sm" aria-label="User profile"><phosphor-icon name="user" size="20"></phosphor-icon></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h1 class="text-3xl font-extrabold">Admin Panel</h1>
+        <div style="display: flex; gap: 1rem;">
+          <button class="btn-primary text-sm" id="addAppBtn"><phosphor-icon name="plus" size="16"></phosphor-icon> Add App</button>
+          <button class="btn-secondary text-sm"><phosphor-icon name="plus" size="16"></phosphor-icon> Add Category</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div class="stat-card"><div class="stat-value text-3xl" id="statTotalApps">0</div><div class="stat-label">Total Apps</div></div>
+        <div class="stat-card"><div class="stat-value text-3xl" id="statLiveApps">0</div><div class="stat-label">Live Apps</div></div>
+        <div class="stat-card"><div class="stat-value text-3xl" id="statPendingApps">0</div><div class="stat-label">Pending</div></div>
+        <div class="stat-card"><div class="stat-value text-3xl">$45,230</div><div class="stat-label">Monthly Revenue</div></div>
+      </div>
+
+      <!-- Admin Secret -->
+<div class="section" style="margin-top: 1rem; padding: 1.5rem; background: var(--color-card); border-radius: var(--radius-lg); border: 1px solid var(--color-border); max-width: 600px;">
+  <h2 class="section-title text-xl mb-4">Admin Secret</h2>
+  <form id="secretForm" class="space-y-3">
+    <div>
+      <label class="block text-sm font-medium mb-1">Current Secret</label>
+      <input type="text" id="currentSecret" readonly class="w-full rounded-md border px-3 py-2" readonly />
+      <button type="button" id="generateSecretBtn" class="btn-primary text-sm mt-1">Generate Secret</button>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-1">New Secret</label>
+      <input type="text" id="newSecret" placeholder="Enter new secret" class="w-full rounded-md border px-3 py-2" />
+    </div>
+    <button type="submit" id="saveSecretBtn" class="btn-primary w-full py-2">Save Secret</button>
+  </form>
+</div>
+<!-- Add/Edit App Form -->
+      <div class="section" style="margin-top: 1rem; padding: 1.5rem; background: var(--color-card); border-radius: var(--radius-lg); border: 1px solid var(--color-border); max-width: 600px;">
+        <h2 class="section-title text-xl mb-4">Manage App</h2>
+        <form id="appForm" class="space-y-3">
+          <input type="hidden" id="editAppId" />
+          <div>
+            <label class="block text-sm font-medium mb-1">App Logo URL</label>
+            <input type="text" id="appLogo" placeholder="https://example.com/logo.png" required class="w-full rounded-md border px-3 py-2" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">App Name</label>
+            <input type="text" id="appName" placeholder="Linear" required class="w-full rounded-md border px-3 py-2" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Website URL</label>
+            <input type="url" id="appUrl" placeholder="https://linear.app" required class="w-full rounded-md border px-3 py-2" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Description</label>
+            <textarea id="appDescription" rows="3" placeholder="A productivity app..." required class="w-full rounded-md border px-3 py-2 resize-none"></textarea>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-sm font-medium mb-1">Rating (1-5)</label>
+              <input type="number" id="appRating" min="1" max="5" step="0.5" placeholder="4.5" required class="w-full rounded-md border px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Category</label>
+              <input type="text" id="appCategory" placeholder="Productivity" required class="w-full rounded-md border px-3 py-2" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-sm font-medium mb-1">Pricing</label>
+              <select id="appPricing" required class="w-full rounded-md border px-3 py-2">
+                <option value="free">Free</option>
+                <option value="paid">Paid</option>
+                <option value="open-source">Open Source</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Status</label>
+              <select id="appStatus" required class="w-full rounded-md border px-3 py-2">
+                <option value="live">Live</option>
+                <option value="pending">Pending</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary w-full py-2" id="submitBtn">Add App</button>
+          <button type="button" id="cancelEditBtn" class="btn-ghost w-full py-2 text-sm" style="display:none;">Cancel</button>
+        </form>
+      </div>
+
+      <!-- Apps Table -->
+      <div class="section-header" style="margin-top: 3rem; margin-bottom: 1.5rem;">
+        <h2 class="section-title">All Apps</h2>
+      </div>
+      <div class="table-container">
+        <table id="appsTable">
+          <tbody>
+            <tr>
+              <th style="width: 100px;">Icon</th>
+              <th style="width: 180px;">Name</th>
+              <th>Description</th>
+              <th style="width: 120px;">Category</th>
+              <th style="width: 100px;">Rating</th>
+              <th style="width: 100px;">Pricing</th>
+              <th style="width: 100px;">Status</th>
+              <th>Actions</th>
+            </tr>
+            <tr><td colspan="8" style="text-align: center; padding: 2rem; color: var(--color-muted-foreground);">No apps found. Add your first app above.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-card">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="text-sm text-muted-foreground" style="padding-top: 1.5rem; border-top: 1px solid var(--color-border); text-align: center;">
+        &copy; 2024 Appora. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    const STORAGE_KEY = 'appora_apps';
+    const defaultApps = [
+      { id: 1, logo: '', name: 'Linear', url: 'https://linear.app', desc: 'Track and ship work across the software development life cycle.', rating: 4.8, category: 'Productivity', pricing: 'paid', status: 'live' },
+      { id: 2, logo: '', name: 'Figma', url: 'https://figma.com', desc: 'Design, prototype, and share user experiences faster.', rating: 4.7, category: 'Design', pricing: 'free', status: 'live' },
+      { id: 3, logo: '', name: 'Cursor', url: 'https://cursor.sh', desc: 'The IDE built for pair-programming with AI.', rating: 4.9, category: 'Development', pricing: 'paid', status: 'live' },
+      { id: 4, logo: '', name: 'Notion', url: 'https://notion.so', desc: 'One workspace for writing, planning, and organizing.', rating: 4.6, category: 'Productivity', pricing: 'free', status: 'live' },
+      { id: 5, logo: '', name: 'Replit', url: 'https://replit.com', desc: 'Collaborative browser-based IDE.', rating: 4.4, category: 'Development', pricing: 'open-source', status: 'live' },
+    ];
+
+    let apps = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (!apps || apps.length === 0) {
+      apps = [...defaultApps];
+      saveApps();
+    }
+
+    function saveApps() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(apps));
+    }
+
+    function getIconColor(name) {
+      const colors = ['bg-indigo', 'bg-emerald', 'bg-amber', 'bg-rose', 'bg-blue', 'bg-purple', 'bg-teal', 'bg-orange'];
+      let h = 0;
+      for (let i = 0; i < name.length; i++) {
+        h = ((h << 5) - h) + name.charCodeAt(i);
+        h |= 0;
+      }
+      return colors[Math.abs(h) % colors.length];
+    }
+
+    function renderStats() {
+      const total = apps.length;
+      const live = apps.filter(a => a.status === 'live').length;
+      const pending = apps.filter(a => a.status === 'pending').length;
+      document.getElementById('statTotalApps').textContent = total;
+      document.getElementById('statLiveApps').textContent = live;
+      document.getElementById('statPendingApps').textContent = pending;
+    }
+
+    function renderTable() {
+      const tbody = document.querySelector('#appsTable tbody');
+      tbody.innerHTML = '';
+      if (apps.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 2rem; color: var(--color-muted-foreground);">No apps found.</td></tr>';
+        return;
+      }
+      apps.forEach(app => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="align-items: center;">
+            <div class="app-icon ${getIconColor(app.name)}" style="width: 32px; height: 32px; font-size: 0.75rem;">${app.name.charAt(0)}</div>
+          </td>
+          <td style="align-items: center; font-weight: 500;">${app.name}</td>
+          <td style="align-items: center; font-size: 0.875rem; color: var(--color-muted-foreground);">${app.desc}</td>
+          <td style="align-items: center; font-size: 0.875rem;">${app.category}</td>
+          <td style="align-items: center; font-size: 0.875rem;">${app.rating}</td>
+          <td style="align-items: center;"><span class="price-badge ${app.pricing}">${app.pricing}</span></td>
+          <td style="align-items: center;"><span class="price-badge free" style="background: ${app.status === 'live' ? '#ECFDF5' : '#FEF2F2'}; color: ${app.status === 'live' ? '#059669' : '#DC2626'}">${app.status}</span></td>
+          <td style="align-items: center; display: flex; gap: 0.25rem;">
+            <button class="icon-button text-xs" style="padding: 0.25rem;" onclick="editApp('${app.id}')"><phosphor-icon name="pencil" size="14"></phosphor-icon></button>
+            <button class="icon-button text-xs text-destructive" style="padding: 0.25rem;" onclick="deleteApp('${app.id}')"><phosphor-icon name="trash" size="14"></phosphor-icon></button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function resetForm() {
+      document.getElementById('appForm').reset();
+      document.getElementById('editAppId').value = '';
+      document.getElementById('submitBtn').textContent = 'Add App';
+      document.getElementById('cancelEditBtn').style.display = 'none';
+    }
+
+    window.editApp = function(id) {
+      const app = apps.find(a => a.id === id);
+      if (!app) return;
+      document.getElementById('editAppId').value = app.id;
+      document.getElementById('appLogo').value = app.logo || '';
+      document.getElementById('appName').value = app.name;
+      document.getElementById('appUrl').value = app.url || '';
+      document.getElementById('appDescription').value = app.desc || '';
+      document.getElementById('appRating').value = app.rating || '';
+      document.getElementById('appCategory').value = app.category || '';
+      document.getElementById('appPricing').value = app.pricing || 'free';
+      document.getElementById('appStatus').value = app.status || 'live';
+      document.getElementById('submitBtn').textContent = 'Update App';
+      document.getElementById('cancelEditBtn').style.display = 'block';
+      document.getElementById('cancelEditBtn').onclick = resetForm;
+      document.getElementById('appForm').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    window.deleteApp = function(id) {
+      if (!confirm('Delete this app? This will also remove it from the homepage.')) return;
+      apps = apps.filter(a => a.id !== id);
+      saveApps();
+      renderStats();
+      renderTable();
+      showToast('App deleted');
+    };
+
+    document.getElementById('appForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('editAppId').value;
+      const appData = {
+        id: id ? parseInt(id) : Date.now(),
+        logo: document.getElementById('appLogo').value.trim(),
+        name: document.getElementById('appName').value.trim(),
+        url: document.getElementById('appUrl').value.trim(),
+        desc: document.getElementById('appDescription').value.trim(),
+        rating: parseFloat(document.getElementById('appRating').value) || 0,
+        category: document.getElementById('appCategory').value.trim(),
+        pricing: document.getElementById('appPricing').value,
+        status: document.getElementById('appStatus').value,
+      };
+      if (id) {
+        apps = apps.map(a => a.id === appData.id ? appData : a);
+        showToast('App updated');
+      } else {
+        apps.push(appData);
+        showToast('App added');
+      }
+      saveApps();
+      renderStats();
+      renderTable();
+      resetForm();
+    });
+
+    document.getElementById('addAppBtn').addEventListener('click', () => {
+      resetForm();
+      document.getElementById('appForm').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderStats();
+    renderTable();
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // Admin Secret management
+    const SECRET_STORAGE_KEY = 'appora_secret';
+
+    function generateSecret() {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let secret = '';
+      for (let i = 0; i < 10; i++) {
+        secret += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return secret;
+    }
+
+    document.getElementById('generateSecretBtn').addEventListener('click', () => {
+      const secret = generateSecret();
+      document.getElementById('currentSecret').value = secret;
+    });
+
+    document.getElementById('secretForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const newSecret = document.getElementById('newSecret').value.trim();
+      if (newSecret) {
+        localStorage.setItem(SECRET_STORAGE_KEY, newSecret);
+        document.getElementById('currentSecret').value = newSecret;
+        showToast('Secret saved');
+      }
+    });
+
+    // Preloader: shows on slow server response, hides when page is ready
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      if (preloader) preloader.classList.add('hidden');
+      const savedSecret = localStorage.getItem(SECRET_STORAGE_KEY);
+      if (savedSecret) {
+        document.getElementById('currentSecret').value = savedSecret;
+      }
+    });
+    window.addEventListener('beforeunload', () => {
+      if (preloader) preloader.classList.remove('hidden');
+    });
+
+  </script>
+</body>
+</html>

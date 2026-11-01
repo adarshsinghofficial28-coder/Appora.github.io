@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appora — Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.2/dist/phosphor.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-background">
+  <div class="preloader" id="preloader">
+    <div class="crack crack1"></div>
+    <div class="crack crack2"></div>
+    <div class="crack crack3"></div>
+    <div class="crack crack4"></div>
+    <div class="crack crack5"></div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="dashboard.html" class="logo">
+          <span class="logo-mark">A</span>
+          <span class="font-extrabold text-xl text-foreground">Appora</span>
+        </a>
+        <nav class="main-nav">
+          <a href="dashboard.html" class="text-sm font-medium">Dashboard</a>
+          <a href="admin-panel.html" class="text-sm font-medium text-primary">Admin Panel</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button text-sm" id="userProfileBtn" aria-label="User profile">
+            <phosphor-icon name="user" size="20"></phosphor-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div style="margin-bottom: 2rem;">
+        <button class="btn-ghost text-sm mr-2" style="margin-bottom: 0;">Revenue: $45,230</button>
+        <button class="btn-ghost text-sm" style="margin-bottom: 0;">Monthly Active: 12.3k</button>
+      </div>
+      <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+        <div class="stat-card"><div class="stat-value text-2xl">247</div><div class="stat-label">Featured Apps</div></div>
+        <div class="stat-card"><div class="stat-value text-2xl">12.8k</div><div class="stat-label">Monthly Users</div></div>
+        <div class="stat-card"><div class="stat-value text-2xl">3,421</div><div class="stat-label">Bookmarks</div></div>
+        <div class="stat-card"><div class="stat-value text-2xl">98%</div><div class="stat-label">Uptime</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">App Activity</h2>
+      </div>
+      <div class="table-container">
+        <table>
+          <tbody>
+            <tr>
+              <th style="width: 200px;">App Name</th>
+              <th style="width: 120px;">Category</th>
+              <th style="width: 100px;">Revenue</th>
+              <th style="width: 100px;">Users</th>
+              <th>Actions</th>
+            </tr>
+            <tr style="align-items: center;">
+              <td><a href="#" class="text-foreground" style="font-weight: 500;">Linear</a></td>
+              <td style="font-size: 0.875rem; color: var(--color-muted-foreground);">Productivity</td>
+              <td style="color: #10B981;">$45,230</td>
+              <td style="color: var(--color-muted-foreground);">15.2k</td>
+              <td style="display: flex; gap: 0.5rem;">
+                <button class="icon-button text-xs" style="padding: 0.25rem;"><phosphor-icon name="eye" size="14"></phosphor-icon></button>
+                <button class="icon-button text-xs" style="padding: 0.25rem;"><phosphor-icon name="bookmark" size="14"></phosphor-icon></button>
+                <button class="icon-button text-xs text-destructive" style="padding: 0.25rem;"><phosphor-icon name="trash" size="14"></phosphor-icon></button>
+              </td>
+            </tr>
+            <tr style="align-items: center;">
+              <td><a href="#" class="text-foreground" style="font-weight: 500;">Figma</a></td>
+              <td style="font-size: 0.875rem; color: var(--color-muted-foreground);">Design</td>
+              <td style="color: #10B981;">$12,450</td>
+              <td style="color: var(--color-muted-foreground);">9.8k</td>
+              <td style="display: flex; gap: 0.5rem;">
+                <button class="icon-button text-xs" style="padding: 0.25rem;"><phosphor-icon name="eye" size="14"></phosphor-icon></button>
+                <button class="icon-button text-xs" style="padding: 0.25rem;"><phosphor-icon name="bookmark" size="14"></phosphor-icon></button>
+                <button class="icon-button text-xs text-destructive" style="padding: 0.25rem;"><phosphor-icon name="trash" size="14"></phosphor-icon></button>
+              </td>
+            </tr>
+            <tr style="align-items: center;">
+              <td><a href="#" class="text-foreground" style="font-weight: 500;">Notion</a></td>
+              <td style="font-size: 0.875rem; color: var(--color-muted-foreground);">Productivity</td>
+              <td style="color: #10B981;">$28,760</td>
+              <td style="color: var(--color-muted-foreground);">24.1k</td>
+              <td style="display: flex; gap: 0.5rem;">
+                <button class="icon-button text-xs" style="padding: 0.25rem;"><phosphor-icon name="eye" size="14"></phosphor-icon></button>
+                <button class="icon-button text-xs" style="padding: 0.25rem;"><phosphor-icon name="bookmark" size="14"></phosphor-icon></button>
+                <button class="icon-button text-xs text-destructive" style="padding: 0.25rem;"><phosphor-icon name="trash" size="14"></phosphor-icon></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Recent Sign-ups</h2>
+      </div>
+      <div style="overflow-x: auto;">
+        <table class="table-container">
+          <table>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="font-size: 0.875rem; padding: 0.75rem 0; color: var(--color-muted-foreground);">john.doe@example.com</td>
+                <td style="font-size: 0.875rem; padding: 0.75rem 0; color: var(--color-primary);">14m ago</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="font-size: 0.875rem; padding: 0.75rem 0; color: var(--color-muted-foreground);">jane.smith@example.com</td>
+                <td style="font-size: 0.875rem; padding: 0.75rem 0; color: var(--color-muted-foreground);">2d ago</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="font-size: 0.875rem; padding: 0.75rem 0; color: var(--color-muted-foreground);">mike.wilson@example.com</td>
+                <td style="font-size: 0.875rem; padding: 0.75rem 0; color: var(--color-muted-foreground);">5d ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-card">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="text-sm text-muted-foreground" style="padding-top: 1.5rem; border-top: 1px solid var(--color-border); text-align: center;">
+        &copy; 2024 Appora. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+
+    const profileBtn = document.getElementById('userProfileBtn');
+    if (profileBtn) {
+      profileBtn.addEventListener('click', () => {
+        showToast('Profile menu opened');
+      });
+    }
+
+    // Preloader: shows on slow server response, hides when page is ready
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      if (preloader) preloader.classList.add('hidden');
+    });
+    window.addEventListener('beforeunload', () => {
+      if (preloader) preloader.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

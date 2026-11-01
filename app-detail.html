@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appora — App Detail</title>
+  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.2/dist/phosphor.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-background">
+  <div class="preloader" id="preloader">
+    <div class="crack crack1"></div>
+    <div class="crack crack2"></div>
+    <div class="crack crack3"></div>
+    <div class="crack crack4"></div>
+    <div class="crack crack5"></div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">A</span>
+          <span class="font-extrabold text-xl text-foreground">Appora</span>
+        </a>
+        <nav class="main-nav">
+          <a href="index.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Home</a>
+          <a href="browse.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Browse</a>
+          <a href="pricing.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition">Pricing</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-ghost text-sm">Sign In</button>
+          <button class="btn-primary text-sm">Get Started</button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+            <phosphor-icon name="list" size="24"></phosphor-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <!-- Detail Hero -->
+      <section class="app-detail-hero">
+        <div id="detailHero" class="app-detail-hero">
+          <!-- Content injected by JS -->
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-tab="overview">Overview</button>
+        <button class="tab" role="tab" data-tab="details">Details</button>
+        <button class="tab" role="tab" data-tab="screenshots">Screenshots</button>
+      </div>
+
+      <!-- Tab Panels -->
+      <div id="overview" class="tab-panel">
+        <div class="app-detail-content">
+          <div>
+            <div class="detail-card">
+              <h3>Description</h3>
+              <p class="text-muted-foreground" id="detailDescription"></p>
+            </div>
+          </div>
+          <div class="sidebar-sticky">
+            <div class="detail-card">
+              <h3>Details</h3>
+              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem;">
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);"><span class="text-muted-foreground">Category:</span> <span id="detailCategory"></span></li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);"><span class="text-muted-foreground">Pricing:</span> <span id="detailPricing"></span></li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);"><span class="text-muted-foreground">License:</span> <span id="detailLicense"></span></li>
+                <li style="padding: 0.5rem 0;"><span class="text-muted-foreground">Platforms:</span> <span id="detailPlatforms"></span></li>
+              </ul>
+            </div>
+            <div class="sidebar-actions">
+              <button class="btn-ghost"><phosphor-icon name="share" size="18"></phosphor-icon> Share</button>
+              <button class="btn-ghost" id="sidebarBookmarkBtn"><phosphor-icon name="bookmark" size="18"></phosphor-icon> Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="details" class="tab-panel" style="display: none;">
+        <div class="detail-card">
+          <h3>Technical Details</h3>
+          <div class="table-container">
+            <table>
+              <tbody>
+                <tr><td style="font-weight: 600;">Website</td><td><a href="#" id="detailWebsite" class="text-primary"></a></td></tr>
+                <tr><td style="font-weight: 600;">Founded</td><td id="detailFounded"></td></tr>
+                <tr><td style="font-weight: 600;">Headquarters</td><td id="detailHeadquarters"></td></tr>
+                <tr><td style="font-weight: 600;">Launched</td><td id="detailLaunched"></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <h3>Alternative Apps</h3>
+            <div class="apps-grid" style="margin-top: 1rem;">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="screenshots" class="tab-panel" style="display: none;">
+        <div class="screenshots-grid">
+          <div class="screenshot-placeholder">Screenshot 1</div>
+          <div class="screenshot-placeholder">Screenshot 2</div>
+          <div class="screenshot-placeholder">Screenshot 3</div>
+          <div class="screenshot-placeholder">Screenshot 4</div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="bg-card">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="text-sm text-muted-foreground" style="padding-top: 1.5rem; border-top: 1px solid var(--color-border); text-align: center;">
+        &copy; 2024 Appora. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    // Load Phosphor icons
+    phosphor();
+
+    // Parse URL parameter: index.html?name=Linear
+    const urlParams = new URLSearchParams(window.location.search);
+    const appName = urlParams.get('name') || 'Replit';
+
+    // Load apps from localStorage
+    const STORAGE_KEY = 'appora_apps';
+    let allApps = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+    // Fallback default apps
+    if (!allApps || allApps.length === 0) {
+      allApps = [
+        { id: 1, name: 'Linear', url: 'https://linear.app', desc: 'Track and ship work across the software development life cycle.', rating: 4.8, category: 'Productivity', pricing: 'paid', platforms: ['web'], status: 'live', founded: '2020', headquarters: 'San Francisco, CA', launched: '2020', tag: 'paid' },
+        { id: 2, name: 'Figma', url: 'https://figma.com', desc: 'Design, prototype, and share user experiences faster.', rating: 4.7, category: 'Design', pricing: 'free', platforms: ['web'], status: 'live', founded: '2012', headquarters: 'San Francisco, CA', launched: '2016', tag: 'free' },
+        { id: 3, name: 'Cursor', url: 'https://cursor.sh', desc: 'The IDE built for pair-programming with AI.', rating: 4.9, category: 'Development', pricing: 'paid', platforms: ['mac', 'win', 'linux'], status: 'live', founded: '2023', headquarters: 'San Francisco, CA', launched: '2023', tag: 'paid' },
+        { id: 4, name: 'Notion', url: 'https://notion.so', desc: 'One workspace for writing, planning, and organizing.', rating: 4.6, category: 'Productivity', pricing: 'free', platforms: ['web', 'mac', 'win', 'linux'], status: 'live', founded: '2013', headquarters: 'San Francisco, CA', launched: '2016', tag: 'free' },
+        { id: 5, name: 'Postman', url: 'https://postman.com', desc: 'API development and testing platform.', rating: 4.5, category: 'Development', pricing: 'paid', platforms: ['web', 'mac', 'win', 'linux'], status: 'live', founded: '2018', headquarters: 'San Francisco, CA', launched: '2018', tag: 'paid' },
+      ];
+    }
+
+    // Find the app matching the name
+    const app = allApps.find(a => a.name.toLowerCase() === appName.toLowerCase()) || allApps[0];
+
+    // Detail hero
+    const detailHero = document.getElementById('detailHero');
+    if (detailHero) {
+      const tagClass = app.pricing === 'free' ? 'free' : app.pricing === 'paid' ? 'paid' : 'open-source';
+      const tagName = app.pricing === 'free' ? 'Free' : app.pricing === 'paid' ? 'Paid' : 'Open Source';
+      detailHero.innerHTML = `
+        <div class="app-detail-header" style="align-items: center;">
+          <div class="app-icon ${tagClass}" style="width: 96px; height: 96px; border-radius: 16px; font-size: 2rem;">${app.name.charAt(0)}</div>
+          <div class="app-detail-info">
+            <div class="app-detail-meta" style="margin-bottom: 0.5rem;">
+              <span class="price-badge ${tagClass}">${tagName}</span>
+              <span class="platform-pill">${app.platforms.map(p => `<phosphor-icon name="${p === 'web' ? 'globe' : p === 'mac' ? 'apple' : p === 'win' ? 'windows' : 'terminal'}" size="14" style="color: var(--color-muted-foreground);"></phosphor-icon>`).join('')} ${app.platforms.join(', ')}</span>
+            </div>
+            <h1 class="text-3xl font-extrabold" id="detailHeroName" style="color: var(--color-foreground);">${app.name}</h1>
+            <p class="text-muted-foreground mb-3" id="detailHeroDesc">${app.desc || ''}</p>
+            <div class="platform-pill mb-2">
+              <phosphor-icon name="globe" size="14" style="color: var(--color-muted-foreground);"></phosphor-icon> ${(app.platforms || []).join(', ')}
+            </div>
+          </div>
+        </div>
+        <div class="app-detail-actions">
+          <button class="btn-primary">
+            <phosphor-icon name="download-simple" size="18"></phosphor-icon>
+            Visit Site
+          </button>
+          <button class="btn-ghost" id="bookmarkBtn">
+            <phosphor-icon name="bookmark" size="20"></phosphor-icon>
+            Save
+          </button>
+        </div>
+      }
+    }
+
+    // Populate detail fields
+    document.getElementById('detailDescription').textContent = app.desc || '';
+    document.getElementById('detailCategory').textContent = app.category || '';
+    document.getElementById('detailPricing').textContent = app.pricing || '';
+    document.getElementById('detailLicense').textContent = app.tag || '';
+    document.getElementById('detailPlatforms').textContent = (app.platforms || []).join(', ');
+    document.getElementById('detailHeroName').textContent = app.name;
+    document.getElementById('detailWebsite').href = app.url || '#';
+    document.getElementById('detailFounded').textContent = app.founded || 'N/A';
+    document.getElementById('detailHeadquarters').textContent = app.headquarters || 'N/A';
+    document.getElementById('detailLaunched').textContent = app.launched || 'N/A';
+
+    // Bookmark toggle
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    if (bookmarkBtn) {
+      bookmarkBtn.addEventListener('click', () => {
+        bookmarkBtn.classList.toggle('bookmarked');
+        const icon = bookmarkBtn.querySelector('phosphor-icon');
+        if (icon) {
+          icon.setAttribute('name', bookmarkBtn.classList.contains('bookmarked') ? 'bookmark-simple' : 'bookmark');
+          icon.setAttribute('weight', bookmarkBtn.classList.contains('bookmarked') ? 'fill' : 'regular');
+        }
+        showToast(bookmarkBtn.classList.contains('bookmarked') ? 'Bookmarked!' : 'Removed bookmark');
+      });
+    }
+
+    // Tab switching
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+        tab.classList.add('active');
+        const panel = document.getElementById(tab.dataset.tab);
+        if (panel) panel.style.display = 'block';
+      });
+    });
+
+    function showToast(message) {
+      const t = document.getElementById('toast');
+      t.textContent = message;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // Preloader: shows on slow server response, hides when page is ready
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      if (preloader) preloader.classList.add('hidden');
+    });
+    window.addEventListener('beforeunload', () => {
+      if (preloader) preloader.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
